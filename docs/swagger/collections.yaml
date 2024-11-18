@@ -2705,6 +2705,8 @@ components:
               type: string
             settings.bounces.enableSendgrid:
               type: string
+            settings.bounces.enableForwardemail:
+              type: string
             settings.bounces.enablePostmark:
               type: string
             settings.bounces.enableWebhooks:
@@ -2724,6 +2726,8 @@ components:
             settings.bounces.scanIntervalHelp:
               type: string
             settings.bounces.sendgridKey:
+              type: string
+            settings.bounces.forwardemailKey:
               type: string
             settings.bounces.postmarkUsername:
               type: string
@@ -3408,6 +3412,10 @@ components:
           type: boolean
         bounce.sendgrid_key:
           type: string
+        bounce.forwardemail_enabled:
+          type: boolean
+        bounce.forwardemail_key:
+          type: string
         bounce.postmark_enabled:
           type: boolean
         bounce.postmark_username:
@@ -3440,13 +3448,7 @@ components:
           type: string
         attribs:
           type: object
-          properties:
-            city:
-              type: string
-            good:
-              type: boolean
-            type:
-              type: string
+          additionalProperties: true
         status:
           type: string
         created_at:
@@ -3505,13 +3507,7 @@ components:
           type: string
         attribs:
           type: object
-          properties:
-            city:
-              type: string
-            good:
-              type: boolean
-            type:
-              type: string
+          additionalProperties: true
         status:
           type: string
         lists:
@@ -3559,18 +3555,7 @@ components:
           type: boolean
         attribs:
           type: object
-          properties:
-            city:
-              type: string
-            projects:
-              type: integer
-            stack:
-              type: object
-              properties:
-                languages:
-                  type: array
-                  items:
-                    type: string
+          additionalProperties: true
 
     UpdateSubscriber:
       type: object
@@ -3593,18 +3578,7 @@ components:
           type: boolean
         attribs:
           type: object
-          properties:
-            city:
-              type: string
-            projects:
-              type: integer
-            stack:
-              type: object
-              properties:
-                languages:
-                  type: array
-                  items:
-                    type: string
+          additionalProperties: true
 
     SubscriberQueryRequest:
       type: object
@@ -3689,6 +3663,8 @@ components:
             type: string
         subscriber_count:
           type: integer
+        description:
+          type: string
 
     NewList:
       type: object
@@ -3705,6 +3681,8 @@ components:
           type: array
           items:
             type: string
+        description:
+          type: string
 
     ImportStatus:
       type: object
